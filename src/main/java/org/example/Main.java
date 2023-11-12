@@ -1,5 +1,10 @@
 package org.example;
 
+import code.BorrarBD;
+import code.CrearBD;
+import code.InsertarProfesor;
+import code.ListarProfesores;
+
 public class Main {
     public static void main(String[] args) {
         boolean salir = false;
@@ -14,9 +19,19 @@ public class Main {
             opcion = libs.Leer.pedirCadena("Introduce una opción");
             switch (opcion) {
                 case "0" -> {salir = true;}
-                case "1" -> {code.crearBD.();}
-                case "2" -> {code.borrarBD.borrarBD();}
-                case "3" -> {code.LeerXMLconSAX.leerXML();}
+                case "1" -> {
+                    CrearBD.crearBBDD();
+                    CrearBD.cargarDatos();
+                }
+                case "2" -> {
+                    BorrarBD.borrarBD();
+                }
+                case "3" -> {
+                    ListarProfesores.listarProfesores();
+                }
+                case "4"->{
+                    InsertarProfesor.insertarProfesor();
+                }
                 default -> {System.out.println("Opción incorrecta");}
             }
         }while (!salir);
