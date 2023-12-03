@@ -7,11 +7,13 @@ import java.nio.file.Path;
 public class BorrarBD {
     public static void borrarBD(){
         Path archivo = Path.of(("target/ProfesCentro.dat"));
-        System.out.println("BASE DE DATOS BORRADA");
+
         try {
+            //sentencia delete para borrar la base de datos que se encuentra en un archivo
             Files.delete(archivo);
+            System.out.println("BASE DE DATOS BORRADA");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error al intentar Borrar el archivo: "+ e.getMessage());
         }
     }
 
